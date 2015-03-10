@@ -1,0 +1,357 @@
+Introduction
+------------
+This is an all in one package of TORCS. Be aware that some included
+artwork has non free (in the GPL sense) licenses, you will find a "readme.txt"
+in those directories. The rest is either licensed under the GPL or the Free
+Art License.
+
+
+Non-Free content (in GPL sense)
+-------------------------------
+Here the list with the directories containing non free content, look at the
+readme.txt for details:
+- data/cars/models/pw-*
+- data/cars/models/kc-*
+
+
+Linux Installation from Source
+-------------------------------
+- Requires plib 1.8.5, FreeGLUT or GLUT, be aware to compile plib with -fPIC
+  on AMD64 if you run a 64 bit version of Linux. Be aware that maybe just
+  1.8.5 works.
+- Untar the archive
+- cd into the torcs-1.3.1 directory
+- ./configure (use --help for showing the options, of interest might be
+  --enable-debug and --disable-xrandr).
+- make
+- make install
+- make datainstall
+- start with "torcs"
+
+Command line arguments:
+* -l list the dynamically linked libraries
+* -d run under gdb and print stack trace on exit, makes most sense when compile
+     with --enable-debug
+* -e display the commands to issue when you want to run under gdb
+* -s disable multitexturing, important for older graphics cards
+* -m use X mouse cursor and do not hide it during races
+
+
+Windows Installation from Source (Release)
+------------------------------------------
+- hint: you can have a release and a debug build side by side, the release
+  version goes to "runtime" and the debug to "runtimed".
+- requires VC++ 6.0 (tested with sp6)
+- untar the archive into a path without whitespaces and special characters.
+- cd into the torcs-1.3.1 directory
+- run setup_win32.bat
+- run setup_win32-data-from-CVS.bat
+- select the TORCS project and the w32-Release version
+- compile project (0 warnings)
+- cd into the "runtime" directory.
+- run "wtorcs.exe"
+
+
+Windows Installation from Source (Debug version)
+------------------------------------------------
+- hint: you can have a debug and a release build side by side, the debug
+  version goes to "runtimed" and the release to "runtime".
+- requires VC++ 6.0 (tested with sp6)
+- untar the archive into a path without whitespaces and special characters.
+- cd into the torcs-1.3.1 directory
+- run setup_win32_debug.bat
+- run setup_win32-data-from-CVS_debug.bat
+- select the TORCS project and the w32-Debug version
+- compile project (0 warnings)
+- cd into the "runtimed" directory.
+- run "wtorcs.exe"
+
+
+Testing
+-------
+Please pick bugs below and retest them (you can find the original reports on
+http://sourceforge.net/tracker/?group_id=3777&atid=103777, select "any" bugs to
+see as well the closed ones). If you find problems which should be already
+fixed or new ones please report them to the torcs-users mailing list.
+
+
+Getting Help
+------------
+During the game press F1. For more in depth information visit www.torcs.org,
+you find there a lot of information, look at the documentation section on
+the left, have as well a look into the list of howto's. If you are stuck
+have a look into the FAQ to learn how and where to report a problem.
+
+Have fun, bye
+
+Bernhard.
+
+
+Changes since 1.3.1-test1
+-------------------------
+- Compile fixes for gcc 4.3 reported by Mart Kelder (Mart Kelder, Bernhard).
+- Fixed clutch problems and improved ABS for human driver (Andrew Sumner,
+  Bernhard).
+- Set steer speed of car1-trb3 and p406 to 360 (Bernhard).
+- Removed outdated README/INSTALL files (Bernhard).
+- Updated FAQ and installation instructions (Bernhard).
+- Applied wheel-2 texture updates created by Eckhard and Andrew (Eckhard,
+  Andrew, Bernhard).
+- Changed version to 1.3.1 (Bernhard).
+- Fixed #1674545 (Bernhard).
+- Replaced track dirt-1 with upgrade from Eckhard (Eckhard, Bernhard).
+- Corrected mipmapping/transparency behaviour of new dirt-1 track (Bernhard).
+
+
+Changes since 1.3.0
+-------------------
+- Applied patch for screen resolution change program crash when the path
+  contained spaces (Brian Gavin, Bernhard).
+- Added new car, car2-trb1 (Bernhard).
+- Added new car, car3-trb1 (Bernhard).
+- TRB: allow signing in during season, mail tool for admin (Bernhard).
+- Added new car, car5-trb1 (Bernhard).
+- Added new car, car4-trb1 (Bernhard).
+- Suspension improvement, car does not lift up anymore magically on bumpy
+  surfaces (e.g. in the grass) (Christos, Bernhard).
+- Antirollbars are now functional (Bernhard).
+- Rolling resistance is now correctly working (this fixes as well the
+  "forever stuck in the sand" and the "wheel spinning like mad and
+  car stuck" problems (Bernhard).
+- Fixed XML parsing problem with entities (#1651190, reported by Carsten
+  Milkau) (Bernhard) 
+- Code adjustments for VC 2005 (Eric).
+- Added car6-trb1 created by Wolf-Dieter Beelitz and reworked by Bernhard
+  (Wolf-Dieter Beelitz, Bernhard).
+- Car engine sound is now searched in the cars directory first (Eric).
+- Added new car, car7-trb1 (Bernhard).
+- Adjusted car1-7 performance settings (Bernhard).
+- Improvements for track Ruudskogen by Andrew (Andrew, Bernhard).
+- Improvements for track Street-1 by Andrew (Andrew, Bernhard).
+- Added new track Forza created by Andrew (Andrew, Bernhard).
+- Improvements for track wheel-2 by Andrew (Andrew, Bernhard).
+- Totally reworked track e-track-6 by Andrew (Andrew, Bernhard).
+- Improvements for track dirt-3 by Andrew (Andrew, Bernhard).
+- Improvements for track alpine-1 by Andrew (Andrew, Bernhard).
+- Fuel consumption adjustments on car1-7 (Wolf-Dieter, Andrew, Daniel,
+  Bernhard).
+- Additional cameras on spring track by Wolf-Dieter (Wolf-Dieter, Bernhard).
+- Reparametrized 360-modena, renamed to car1-trb3 (Bernhard).
+- Removed unmaintained car models (Bernhard).
+- Reparametrized several models (Bernhard).
+- Adopted robots to the new car set (Bernhard).
+- Applied fix for broken race result list from Jean-Philippe Meuret
+  (Jean-Philippe Meuret, Bernhard).
+- Applied human driver patch from Andrew and Christos, added minor corrections
+  (Andrew, Christos, Bernhard).
+- Fixed some gcc 4.2 warnings, not yet all to keep the interface stable
+  (Bernhard).
+- Adjusted various setups for the suspension code changes (Bernhard).
+- Regenerated configure, adopted in files to autoconf changes (Bernhard).
+- Updated vc++ 6.0 project files and bat scripts (Bernhard).
+- Added new track alpine-2 created by Daniel Schellhammer and Andrew (Daniel,
+  Andrew, Bernhard).
+- Reorganized bat scripts according suggestion of Jean-Philippe (Bernhard).
+- Added texture for inferno 9 (Andrew), tita 9 (Miguel Martinez), inferno 3
+  and 8 (Wolf-Dieter), berniw 7, inferno 7, bt 7, damned 7, olethros 7
+  (Bernhard), (Andrew, Miguel, Wolf-Dieter, Bernhard).
+- Created and added lots of textures for trb1 opponents (Bernhard).
+- Updated bat files to deploy textures (Bernhard).
+- Reintroduced Olethros on Windows, adjusted project dependencies and made
+  code compile (Bernhard).
+- Adjusted race modes, take existing cars and tracks (Bernhard).
+- Adjusted preset driver "Player" (Bernhard).
+- Set steer speed to 360 Deg/s on the trb1 cars (Bernhard).
+- Fit background images without distortion, background image aspect ratio is
+  16:10 (Bernhard).
+- Created new background images (Bernhard).
+- Splash screen scaling without distortion, added smoothing (Bernhard).
+- Added splash screen created by Eckhard M. Jäger (Eckhard, Bernhard).
+- Do not call anymore GfuiIdle for ordinary menus/screens to save power and
+  avoid annoying high frequency noise from graphics hardware (Bernhard).
+- Redone camera placement of alpine-1 (Bernhard).
+- Fixed trackgen not accepting -H option under posix builds (Bernhard).
+- Fixed trackgen not building the elevation 3 map (Bernhard).
+- Equalized author name formatting for tracks (Bernhard).
+- Replaced forza track selection image with a track map (Bernhard).
+- Added new background image and color settings to track alpine-1, created
+  by Eckhard M. Jäger (Eckhard, Bernhard).
+- Fixed wrong texture size constant in openglconfg.cpp (Bernhard).
+- Fixed broken car light rendering, more adjustments will be required
+  (Bernhard).
+- Added new light definitions for trb cars, created by Wolf-Dieter
+  (Wolf-Dieter, Bernhard).
+- Updated installer for Windows (Bernhard).
+- Fixed empty -L option in configure.in, suggested by Jean-Philippe Meuret
+  (Jean-Philippe Meuret, Bernhard).
+- Reduced number of packages (make packages) (Bernhard).
+
+
+
+TODO for 1.3.2
+--------------
+- This is intended as GCC compiler warning fix release. Fixing this warnings
+  will break the binary interface compatibility, that is the reason why I did
+  it not in 1.3.1. Maybe this will be no official release, we will see...
+- Rename *1 category/car (get rid of "*1")
+- Rename *ascar category/car (get rid of *acsar)
+
+
+
+TODO for 1.4.0
+--------------
+- Adjust categories.
+- Apply SDL patch from Brian Gavin (rescheduled to 1.4.0 to get to to test
+  seriously).
+- Update OpenAL to 1.1, fix use of deprecated stuff.
+- Move from VC++ 6.0 to 9.0 (VS2008)
+
+
+
+TODO for Compliance
+-------------------
+155-DTM -> replace with car8-trb1
+acura -> replace with car9-trb1
+mc-larenf1 -> replace with car10-trb1
+sc-f1 -> replace with car1-ow1 (would be nice to have ~5 different cars)
+nascar -> replace with car1-stock1 (would be nice to have ~5 different cars)
+p406 -> replace with car1-trb4
+
+
+
+Later:
+-------------------
+- When car is moving sideways, the engine sound source seems shifted to the
+  side under OpenAL (2.0).
+- Add valgrind option to "torcs".
+- Include suppressions file for valgrind.
+- (Fix parallel build with make -j n, breaks currently in SOLID) (Bernhard).
+- Ongoing for every release: rework free car models (several holes, no
+  emmissive color of lod (model becomes dark at a certain distance), single
+  sided, add cockpit, lods).
+- Ongoing for every release: Improve visual quality of some existing tracks
+  (e.g. e-track-3, eventually wheel-1, e-track-2).
+- Texture clamp to edge needs explicit setting in nvidia driver tab in windows,
+  have a look into that (otherwise the border is not taken as color around the
+  pit door, pits are quite dark around the logo).
+- fix tools (accc, trackgen, etc, these are way too touchy).
+- make trackgen generate two sides for barriers and use just one sided
+  polygons (better diffuse lighting).
+- fix sound in split screen multiplayer. [in progress] (ask Christos).
+- Ongoing: Replace some defines with "static const" to be able to see the
+  symbol name when debugging.
+- move berniw/bt spline code into math to share it.
+- hunt down all glGet* crap during the simulation.
+- (Problem when driver list changes during championship.)
+- (add proper init/shutdown to every module which is not bound to anything else
+  but the loading/init/shutdown/unloading process.)
+- (make use of pbuffers to render trackmap if available.)
+- Update FAQ
+  "mencoder -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=1800 \*.jpg -mf on:type=jpeg:fps=25"
+  the backslash got swallowed by the CMS.
+
+
+
+TODO for 1.9.x (pre 2.0 series, no release)
+--------------
+- Design networking, how to embed it into TORCS?
+- Networking prototype.
+- Gaming modes suitable for online races.
+- Cockpit inside view.
+- Set up infrastructure for reading binary data files bit with and endianness independent.
+
+TODO for 2.0.0
+--------------
+- Goal: best online racing game in terms of stability/playability. Most
+  commercial games really suck in this department, I hope we will do it better.
+- Initial Networking.
+
+
+TODO LATER
+----------
+- Add validation for the case no driver selected, do not exit to
+  console.
+- Fix more memory leaks (already hunt down a LOT there are still more).
+- Networking (2.0).
+- Rework the whole AC file loaders and state management (most of the remaining
+  memory leaks).
+- Replace vector/matrix oprations with an efficient implementation (-> use
+  SIMD, e.g. enhanced version of v2/v3d.h with SIMD alternatives if compilers
+  are not more clever at this time (currently they suck on useful vectorizing)).
+- SMP simulaton core (for myself).
+- Replays.
+- Setup editor (add a function to the robot interface to ask the robot
+  about the location or a file handle for its setup file, perhaps a
+  close function is needed as well).
+- Telemetry recorder/viewer.
+- Redesign/Reimplement multitexturing and fileformat.
+- Apply light maps to skid marks, smoke and wheels, etc.
+- Phong specular highlights (optional env, cube or GLSL).
+- Shadowmapped/Stenciled dynamic car shadows.
+- Compile/crosscompile on MinGW/Cygwin/Linux for Windows native.
+- so/dll with libtool, common code?
+- 3d-grass.
+- Dynamic sky.
+- Pace car and trucks to remove wrecks (remove "virtual" crane).
+- More Rules.
+- TRB integration.
+- Fix/create new simu/switch to updated/new simu.
+- (clean up simuv3 conflicts)
+- Show just fitting resolutions for fullscreen/change for windowed mode.
+- Make it possible for a robot module to carry any arbitrary number of
+  drivers (instead of static 10).
+- Solve problem of wheels cutting the car body (stencil?).
+- Nicer Tires, a bit more round, better lighting.
+- Separate components more clean (e.g. ssgInit should go back to
+  ssggraph, etc.)
+- persistent skidmarks (simply put them back into the shadowmap after
+  the race? Extra texture? Just restore them?), restore function.
+- Make Windows debug build work.
+- Fix windows project such that it compiles in all locations (currently it
+  fails if special characters are in the path).
+- Avoid cameras cutting the landscape.
+- Rework models (holes, just single sided polygons for culling, etc.)
+- Check (and fix if neccessary) screenshots on Windows, still wrong gamma?
+- API to change setup during the practice mode.
+- Timed races (e.g. 24h).
+- Allow more mouse events /suggested by Frieder -> mouse wheel for gear
+  switching).
+- Start position marks on track (same technique like fake shadow, skids).
+- Start procedures (pace car, etc).
+- Better transparency for track objects.
+- More driving aids, switch to AI and back.
+- localization (e.g English, French, German, ...).
+- add compatibility lib for strndup etc. on win32.
+- New GUI.
+- driving/races in reverse track direction.
+- Check for consistency of simuv2/simuv3.
+- verify that simulation obeys conservation of momentum and energy.
+- optimise simuv3.
+- Fix engine inertia/s of F1 cars, check/fix all other cars as well.
+- Opponent sets for human players (e.g 20 Open Wheel cars, etc.)
+- Free camera controlled with mouse and keys.
+- Automate GL features verification (hopefully obsolete).
+
+
+IDEAS FOR MUCH LATER
+--------------------
+- Weather.
+- Dynamic day/night-time, car lights with projective texturing.
+- Pit crew.
+- Dynamic "intelligent" Objects (e.g. Helicopter)
+- Solid/dynamic obstacles.
+- Nicer trees etc, terrain LOD.
+- Inside view.
+- Animated driver.
+- Dirt on cars, inside view.
+- free terrain.
+- Open track dynamically generated when driving.
+- Random track generator.
+- Separate pit path, Y segments, etc?
+- TORCS as benchmark or screensaver?
+- Switch to rigid body engine?
+- Force feedback.
+- (Compressed data files?)
+- Story mode with message.
+- Traffic simulator
+

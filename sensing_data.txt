@@ -1,0 +1,10 @@
+car position (x, y, z)
+car position (distance from track)
+yaw, yaw rate
+roll, pitch
+speed, acceleration
+wheel speed (angular), wheel angle (expected)
+suspension
+engine RPM
+
+acceleration, brake, steer
